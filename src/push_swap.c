@@ -76,8 +76,8 @@ void	radix_sort(t_stack *a, t_stack *b)
 		while ((ft_is_sorted(a) != 1) && ++j < a->tamanho)
 		{
 			num = a->stack[a->top];
-			if (((num >> i) & 0b00000001) == 1)
-				ra(a, false);
+			if (((num >> i) & 1) == 1)
+				ra(a, true);
 			else
 				pb(a, b);
 		}
