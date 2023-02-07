@@ -78,3 +78,16 @@ int	pop(t_stack *s)
 		return (EXIT_FAILURE);
 	}
 }
+
+bool	ft_is_sorted(t_stack *a)
+{
+	int	i;
+
+	i = -1;
+	while (++i < a->tamanho)
+	{
+		if (a->stack[i] > a->stack[i + 1])
+			return (false);
+	}
+	return (true);
+}

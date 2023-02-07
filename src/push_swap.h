@@ -64,11 +64,12 @@ void	rrr(t_stack *stacka, t_stack *stackb);
 void	printstacks(t_stack *a, t_stack *b);
 void	freestacks(t_stack *stacka, t_stack *stackb);
 void	radix_sort(t_stack *a, t_stack *b);
-int		ft_is_sorted(t_stack *a);
-t_stack *positive_stack(t_stack *a);
-int		*bouble_sort(t_stack *a);
+bool	ft_is_sorted(t_stack *a);
+t_stack	*positive_stack(t_stack *a);
+int	*array_to_sort(t_stack *a);
 int		*sorte_positivo(t_stack *dup, t_stack *a);
 int		pos(int num, t_stack *a);
 void	simplify_numbers(t_stack *stack, int *sorted_array);
+void	sort_final(int	*array, int	size);
 
 #endif

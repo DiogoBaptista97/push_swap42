@@ -30,6 +30,6 @@ void	pa(t_stack *stacka, t_stack *stackb)
 	stacka->top++;
 	stacka->stack[stacka->top] = stackb->stack[stackb->top];
 	stackb->top--;
-	ft_printf("pb\n");
+	ft_printf("pa\n");
 }
 

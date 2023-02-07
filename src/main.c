@@ -20,20 +20,6 @@ void	freestacks(t_stack *stacka, t_stack *stackb)
 	free(stackb->stack);
 }
 
-
-int	ft_is_sorted(t_stack *a)
-{
-	int	i;
-
-	i = -1;
-	while (++i < a->tamanho)
-	{
-		if (a->stack[i] < a->stack[i + 1])
-			return (0);
-	}
-	return (1);
-}
-
 //print to visualize the stacks
 void	printstacks(t_stack *a, t_stack *b)
 {

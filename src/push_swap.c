@@ -65,15 +65,21 @@ void	radix_sort(t_stack *a, t_stack *b)
 	int	j;
 
 	max_bits = 0;
-	simplify_numbers(a, bouble_sort(a));
+	j = a->top;
+	simplify_numbers(a, array_to_sort(a));
 	num = max_mum(a);
 	while ((num >> max_bits) != 0)
 		max_bits++;
 	i = -1;
+	while (++i < a->tamanho)
+	{
+		ft_printf("a->stack[%d]:%d \n", i, a->stack[i]);
+	}
+	i = -1;
 	while (++i < max_bits)
 	{
 		j = -1;
-		while ((ft_is_sorted(a) != 1) && ++j < a->tamanho)
+		while ((!ft_is_sorted(a)) && ++j < a->tamanho)
 		{
 			num = a->stack[a->top];
 			if (((num >> i) & 1) == 1)
@@ -81,9 +87,44 @@ void	radix_sort(t_stack *a, t_stack *b)
 			else
 				pb(a, b);
 		}
-		while (ft_isempty(b))
+		while (!ft_isempty(b))
 			pa(a, b);
 	}
+	i = -1;
+	while (++i < a->tamanho)
+	{
+		ft_printf("a->stack[%d]:%d \n", i, a->stack[i]);
+	}
+}
+
+void	simplify_numbers(t_stack *a, int *sorted_array)
+{
+	int	i;
+	int	*temp;
+	int	j;
+
+	temp = malloc (sizeof(int) * (a->tamanho));
+	i = -1;
+	j = a->top;
+	while (++i < a->tamanho)
+	{
+		j = -1;
+		while (++j < a->tamanho)
+		{
+			if (sorted_array[i] == a->stack[j])
+				temp[j] = i;
+		}
+	}
+	i = -1;
+	while (++i < a->tamanho)
+		a->stack[i] = temp[i];
+	i = -1;
+	while (++i < a->tamanho)
+	{
+		ft_printf("simpli a->stack[%d]:%d \n", i, a->stack[i]);
+	}
+	free(temp);
+	free(sorted_array);
 }
 
 /* t_stack *positive_stack(t_stack *a)
@@ -103,79 +144,41 @@ void	radix_sort(t_stack *a, t_stack *b)
 	return (dup);
 } */
 
-int	*bouble_sort(t_stack *a)
+int	*array_to_sort(t_stack *a)
 {
 	int		i;
-	int		j;
-	int		temp;
+	int		*array;
 
-	i = 0;
+	array = malloc (sizeof(int) * a->tamanho);
+	i = -1;
+	while (++i < a->tamanho)
+		array[i] = a->stack[i];
+	sort_final(array, a->tamanho);
+	i = -1;
 	while (++i < a->tamanho)
 	{
-		temp = a->stack[i];
-		j = i - 1;
-		while (j >= 0 && a->stack[j] > temp)
-		{
-			a->stack[j + 1] = a->stack[j];
-			j--;
-		}
-		a->stack[j + 1] = temp;
+		ft_printf("array to sorte array[%d]:%d \n", i, array[i]);
 	}
-	return (a->stack);
+	return (array);
 }
 
-/* int	*sorte_positivo(t_stack *dup, t_stack *a)
+void	sort_final(int	*array, int	size)
 {
 	int	i;
-	int	*stack;
-
-	stack = malloc(sizeof(int) * dup->tamanho);
-	if (!stack)
-		return (NULL);
-	i = -1;
-	while (++i < a->tamanho)
-	{
-		ft_printf("round 2 pos no a int %d: %d \n", i, a->stack[i]);
-	}
-	i = -1;
-	while (++i < a->tamanho)
-	{
-		ft_printf("pos no dup int %d: %d \n", i, dup->stack[i]);
-	}
-	i = -1;
-
-	i = -1;
-	while (++i < a->tamanho)
-	{
-		ft_printf("o digito na pos %d: %d \n", i, stack[i]);
-	}
-	return (stack);
-} */
-
-void	simplify_numbers(t_stack *a, int *sorted_array)
-{
-	int	i;
-	int	*temp;
 	int	j;
+	int	num;
 
-	i = -1;
-	temp = malloc(a->tamanho * sizeof(int));
-	while (++i < a->tamanho)
+	i = 1;
+	while (i < size)
 	{
-		j = -1;
-		while (++j < a->tamanho)
+		num = array[i];
+		j = i - 1;
+		while (j >= 0 && array[j] > num)
 		{
-			if (sorted_array[i] == a->stack[j])
-				temp[j] = i;
+			array[j + 1] = array[j];
+			j--;
 		}
+		array[j + 1] = num;
+		i++;
 	}
-	i = -1;
-	while (++i < a->tamanho)
-		a->stack[i] = temp[i];
-/*	i = -1;
- 	while (++i < a->tamanho)
-	{
-		ft_printf("o digito na pos %d: %d \n", i, a->stack[i]);
-	} */
-	free(temp);
 }
