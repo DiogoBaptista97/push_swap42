@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 CC = cc
-LIBFT = ./libft.a
+LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
 
 PUSH = push_swap
-SRC_PUSH = src/push_swap.c src/instructions.c src/operations/oppush.c src/operations/oprevrotate.c src/operations/oprotate.c src/operations/opswap.c src/main.c
+SRC_PUSH = src/push_swap.c src/instructions.c src/operations/oppush.c src/operations/oprevrotate.c src/operations/oprotate.c src/operations/opswap.c src/main.c src/case_of_3_200.c src/rodix.c src/case_of_5.c src/checks.c src/cases_aux.c src/case_of_2.c
 OBJ_PUSH = $(SRC_PUSH:.c=.o)
 
 

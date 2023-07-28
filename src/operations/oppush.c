@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -15,7 +14,8 @@
 
 void	pb(t_stack *stacka, t_stack *stackb)
 {
-	if (ft_isempty(stacka) || ft_isfull(stackb) || stacka->top == -1 || stackb->top == stackb->tamanho)
+	if (ft_isempty(stacka) || ft_isfull(stackb)
+		|| stacka->top == -1 || stackb->top == stackb->tamanho)
 		return ;
 	stackb->top++;
 	stackb->stack[stackb->top] = stacka->stack[stacka->top];
@@ -25,11 +25,11 @@ void	pb(t_stack *stacka, t_stack *stackb)
 
 void	pa(t_stack *stacka, t_stack *stackb)
 {
-	if (ft_isempty(stackb) || ft_isfull(stacka) || stackb->top == -1 || stacka->top == stacka->tamanho)
+	if (ft_isempty(stackb) || ft_isfull(stacka)
+		|| stackb->top == -1 || stacka->top == stacka->tamanho)
 		return ;
 	stacka->top++;
 	stacka->stack[stacka->top] = stackb->stack[stackb->top];
 	stackb->top--;
 	ft_printf("pa\n");
 }
-

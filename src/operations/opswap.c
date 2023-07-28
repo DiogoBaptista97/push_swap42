@@ -18,7 +18,6 @@ void	sa(t_stack *stack, bool truesa)
 
 	if (ft_isempty(stack) || stack->top == 0)
 		return ;
-	ft_printf("o top:%d\n", stack->stack[stack->top]);
 	temp = stack->stack[stack->top];
 	stack->stack[stack->top] = stack->stack[stack->top - 1];
 	stack->stack[stack->top - 1] = temp;
@@ -32,7 +31,6 @@ void	sb(t_stack *stack, bool truesb)
 
 	if (ft_isempty(stack) || stack->top == 0)
 		return ;
-	ft_printf("o top:%d\n", stack->stack[stack->top]);
 	temp = stack->stack[stack->top];
 	stack->stack[stack->top] = stack->stack[stack->top - 1];
 	stack->stack[stack->top - 1] = temp;
