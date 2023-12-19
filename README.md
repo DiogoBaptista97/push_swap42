@@ -1,3 +1,5 @@
+# push_swap (42Porto - 42Cursus) <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" title="C" alt="C Logo" width="55" height="55" align="right" />&nbsp;  
+
 ### Overview:
 _Push_swap_ is a program that sorts a stack of integers with the minimum instructions possible and an auxiliary stack.
 Instructions are defined within the subject of the project; They're the only way allowed to
