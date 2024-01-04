@@ -17,9 +17,7 @@
 void	case_of_2(t_stack *a)
 {
 	int	*array;
-	int	i;
 
-	i = -1;
 	array = get_array(a);
 	if (array[0] < array[1])
 		ft_printf("sa\n");

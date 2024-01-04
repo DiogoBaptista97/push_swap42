@@ -18,9 +18,6 @@ int	*get_array(t_stack *a);
 
 void	case_of_3(t_stack *a)
 {
-	int	i;
-
-	i = -1;
 	if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2]
 		&& a->stack[1] < a->stack[2])
 		sa(a, true);
@@ -98,12 +95,10 @@ int	max_point(t_stack *b)
 
 void	insertion_sort(t_stack *a, t_stack *b)
 {
-	int	i;
 	int	mid_point;
 	int	chunks;
 
 	chunks = 1;
-	i = -1;
 	simplify_numbers(a, array_to_sort(a));
 	while (a->top > 1)
 	{
